@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BasicCrudApp</string>
+    <string name="create_record_button_label">Create Record</string>
+</resources>
