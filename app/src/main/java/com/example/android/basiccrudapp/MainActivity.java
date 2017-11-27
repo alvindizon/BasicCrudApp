@@ -24,10 +24,6 @@ public class MainActivity extends FragmentActivity
             // User touched the dialog's positive button
     }
 
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) {
-            // User touched the dialog's negative button
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

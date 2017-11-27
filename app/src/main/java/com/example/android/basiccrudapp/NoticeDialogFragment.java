@@ -20,7 +20,6 @@ public class NoticeDialogFragment extends DialogFragment {
      * Each method passes the DialogFragment in case the host needs to query it. */
     public interface NoticeDialogListener {
         public void onDialogPositiveClick(DialogFragment dialog);
-        public void onDialogNegativeClick(DialogFragment dialog);
     }
 
     // Use this instance of the interface to deliver action events
@@ -51,17 +50,13 @@ public class NoticeDialogFragment extends DialogFragment {
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.record_form, null))
                 // Add action buttons
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        Toast.makeText(getActivity(), "Pressed OK", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Toast.makeText(getActivity(), "Cancel", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Pressed Add", Toast.LENGTH_SHORT).show();
                     }
                 });
+
         return builder.create();
     }
 
