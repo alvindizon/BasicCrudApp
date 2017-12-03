@@ -14,4 +14,12 @@
         android:layout_alignParentTop="true"
         android:text="@string/create_record_button_label"/>
 
+    <TextView
+        android:id="@+id/record_count_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_record_button"
+        android:text="@string/records_count_label"
+        android:padding="1dp"/>
+
 </RelativeLayout>
