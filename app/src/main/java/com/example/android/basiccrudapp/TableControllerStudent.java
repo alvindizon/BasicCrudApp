@@ -13,6 +13,11 @@ public class TableControllerStudent extends DatabaseHandler {
         super(context);
     }
 
+    /**
+     *
+     * @param objectStudent is the object that contains the firstname and email of a student
+     * @return true if values were successfully added, false if not
+     */
     public boolean create(ObjectStudent objectStudent) {
         ContentValues values = new ContentValues();
         values.put("firstname", objectStudent.mFirstName);
