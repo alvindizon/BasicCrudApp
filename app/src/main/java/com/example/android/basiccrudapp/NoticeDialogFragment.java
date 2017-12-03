@@ -51,9 +51,9 @@ public class NoticeDialogFragment extends DialogFragment {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.record_form, null))
-                .setTitle("Add Record")
+                .setTitle(R.string.dialog_title_label)
                 // Add action buttons
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.add_record_button_label, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         Dialog f = (Dialog) dialog;
