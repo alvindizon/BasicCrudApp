@@ -6,6 +6,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -56,8 +57,14 @@ public class NoticeDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         Dialog f = (Dialog) dialog;
-                        EditText editUserName = (EditText) f.findViewById(R.id.edit_first_name);
+                        // find EditTexts in dialog
+                        EditText editFirstName = (EditText) f.findViewById(R.id.edit_first_name);
                         EditText editEmail = (EditText) f.findViewById(R.id.edit_email);
+                        // create object that contains Student info
+                        ObjectStudent objectStudent = new ObjectStudent();
+                        // save input from dialog to Object members
+                        objectStudent.mFirstName = editFirstName.getText().toString();
+                        objectStudent.mEmail = editEmail.getText().toString();
                     }
                 });
 
