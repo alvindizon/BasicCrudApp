@@ -25,6 +25,20 @@ public class TableControllerStudent extends DatabaseHandler {
 
         return createSuccessful;
     }
+
+    /**
+     *  This function returns the number of existing records in the database
+     * @return recordCount is the number of existing records in the database
+     */
+    public int count(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sql = "SELECT * FROM students";
+        int recordCount = db.rawQuery(sql, null).getCount();
+        db.close();
+
+        return recordCount;
+    }
 }
 
 

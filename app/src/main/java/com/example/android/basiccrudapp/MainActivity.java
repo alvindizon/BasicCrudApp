@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends FragmentActivity
@@ -24,6 +25,14 @@ public class MainActivity extends FragmentActivity
             // User touched the dialog's positive button
     }
 
+    /**
+     * Count existing records
+     */
+    public void countRecords(){
+        int recordCount = new TableControllerStudent(this).count();
+        TextView textViewRecordCount = (TextView) findViewById(R.id.record_count_text);
+        textViewRecordCount.setText(recordCount + " records found");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
