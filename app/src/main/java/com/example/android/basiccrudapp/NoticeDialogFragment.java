@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -49,11 +50,14 @@ public class NoticeDialogFragment extends DialogFragment {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.record_form, null))
+                .setTitle("Add Record")
                 // Add action buttons
                 .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        Toast.makeText(getActivity(), "Pressed Add", Toast.LENGTH_SHORT).show();
+                        Dialog f = (Dialog) dialog;
+                        EditText editUserName = (EditText) f.findViewById(R.id.edit_first_name);
+                        EditText editEmail = (EditText) f.findViewById(R.id.edit_email);
                     }
                 });
 
