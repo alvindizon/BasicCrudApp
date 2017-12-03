@@ -65,6 +65,19 @@ public class NoticeDialogFragment extends DialogFragment {
                         // save input from dialog to Object members
                         objectStudent.mFirstName = editFirstName.getText().toString();
                         objectStudent.mEmail = editEmail.getText().toString();
+                        // create TableControllerStudent
+                        boolean createRecordSuccessful = new TableControllerStudent(
+                                f.getContext()).create(objectStudent);
+
+                        // tell whether create was successful or not
+                        if(createRecordSuccessful){
+                            Toast.makeText(f.getContext(),
+                                    "Student Info was saved", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(f.getContext(),
+                                    "Student Info was not saved", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
 
