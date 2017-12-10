@@ -33,7 +33,7 @@ public class MainActivity extends FragmentActivity
      */
     public void countRecords(){
         int recordCount = new TableControllerStudent(this).count();
-        TextView textViewRecordCount = (TextView) findViewById(R.id.record_count_text);
+        TextView textViewRecordCount = (TextView) findViewById(R.id.record_count_text_view);
         textViewRecordCount.setText(recordCount + " records found");
     }
 
@@ -84,5 +84,7 @@ public class MainActivity extends FragmentActivity
 
         // display number of records
         countRecords();
+        // read and display if records > 0
+        readRecords();
     }
 }
