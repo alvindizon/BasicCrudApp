@@ -5,7 +5,10 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.List;
 
 
 public class MainActivity extends FragmentActivity
@@ -32,6 +35,38 @@ public class MainActivity extends FragmentActivity
         int recordCount = new TableControllerStudent(this).count();
         TextView textViewRecordCount = (TextView) findViewById(R.id.record_count_text);
         textViewRecordCount.setText(recordCount + " records found");
+    }
+
+    /**
+     *  Read and display records
+     */
+    public void readRecords(){
+        LinearLayout linearLayoutRecords = (LinearLayout) findViewById(R.id.records_linear_layout);
+        linearLayoutRecords.removeAllViews();
+
+        List<ObjectStudent> students = new TableControllerStudent(this).read();
+        if(students.size() > 0){
+            for(ObjectStudent obj: students){
+                int id = obj.mId;
+                String studentFirstname = obj.mFirstName;
+                String studentEmail = obj.mEmail;
+
+                String textViewContents = studentFirstname + " - " + studentEmail;
+
+                TextView textViewStudentItem = new TextView(this);
+                textViewStudentItem.setPadding(0, 10, 0, 10);
+                textViewStudentItem.setText(textViewContents);
+                textViewStudentItem.setTag(Integer.toString(id));
+
+                linearLayoutRecords.addView(textViewStudentItem);
+            }
+        } else{
+            TextView locationItem = new TextView(this);
+            locationItem.setPadding(8,8,8,8);
+            locationItem.setText("No records yet.");
+
+            linearLayoutRecords.addView(locationItem);
+        }
     }
 
     @Override
