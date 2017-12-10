@@ -46,5 +46,8 @@ public class MainActivity extends FragmentActivity
                 showNoticeDialog();
             }
         });
+
+        // display number of records
+        countRecords();
     }
 }
