@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/create_record_button"
         android:layout_centerInParent="true"
+        android:text="@string/zero_records_count_label"
         android:padding="1dp"/>
 
 </RelativeLayout>

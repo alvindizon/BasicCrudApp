@@ -3,5 +3,5 @@
     <string name="create_record_button_label">Create Record</string>
     <string name="dialog_title_label">Create record</string>
     <string name="add_record_button_label">Add</string>
-    <string name="records_count_label">Zero records found</string>
+    <string name="zero_records_count_label">Zero records found</string>
 </resources>
