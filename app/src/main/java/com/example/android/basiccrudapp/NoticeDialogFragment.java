@@ -78,6 +78,7 @@ public class NoticeDialogFragment extends DialogFragment {
                                     "Student Info was not saved", Toast.LENGTH_SHORT).show();
                         }
 
+                        ((MainActivity) getActivity()).readRecords();
                     }
                 });
 
