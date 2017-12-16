@@ -128,6 +128,21 @@ public class TableControllerStudent extends DatabaseHandler {
 
         return updateSuccessful;
     }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public boolean delete(int id){
+        boolean deleteSuccessful = false;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        deleteSuccessful = db.delete("students", "id ='" + id + "'", null) > 0;
+        db.close();
+
+        return deleteSuccessful;
+    }
 }
 
 

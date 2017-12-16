@@ -29,6 +29,18 @@ public class OnLongClickListenerStudentRecord implements View.OnLongClickListene
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(i == 0){
                             editRecord(Integer.parseInt(mId));
+                        } else if (i == 1){
+                            boolean deleteSuccessful = new TableControllerStudent(mContext).delete(Integer.parseInt(mId));
+
+                            if(deleteSuccessful){
+                                Toast.makeText(mContext, "Student record was deleted.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(mContext, "Unable to delete student record.", Toast.LENGTH_SHORT).show();
+                            }
+                            // refresh record count and list after deletion
+                            ((MainActivity) mContext).countRecords();
+                            ((MainActivity) mContext).readRecords();
+
                         }
                         dialogInterface.dismiss();
                     }
