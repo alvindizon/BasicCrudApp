@@ -58,6 +58,8 @@ public class MainActivity extends FragmentActivity
                 textViewStudentItem.setText(textViewContents);
                 textViewStudentItem.setTag(Integer.toString(id));
 
+                textViewStudentItem.setOnLongClickListener(new OnLongClickListenerStudentRecord());
+
                 linearLayoutRecords.addView(textViewStudentItem);
             }
         } else{
