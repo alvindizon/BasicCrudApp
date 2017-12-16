@@ -78,6 +78,56 @@ public class TableControllerStudent extends DatabaseHandler {
 
         return recordsList;
     }
+
+    /**
+     * Read single record
+     * @param studentId
+     * @return
+     */
+    public ObjectStudent readSingleRecord(int studentId){
+        ObjectStudent objectStudent = null;
+        String sql = "SELECT * FROM students WHERE id = " + studentId;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex("id")));
+            String firstName = cursor.getString(cursor.getColumnIndex("firstname"));
+            String email = cursor.getString(cursor.getColumnIndex("email"));
+
+            objectStudent = new ObjectStudent();
+            objectStudent.mId = id;
+            objectStudent.mFirstName = firstName;
+            objectStudent.mEmail = email;
+        }
+
+        cursor.close();
+        db.close();
+
+        return objectStudent;
+    }
+
+    /**
+     * Update record
+     * @param objectStudent is the object that contains the firstname and email of a student
+     * @return
+     */
+    public boolean update(ObjectStudent objectStudent){
+        ContentValues values = new ContentValues();
+
+        values.put("firstname", objectStudent.mFirstName);
+        values.put("email", objectStudent.mEmail);
+
+        String where = "id = ?";
+        String[] whereArgs = { Integer.toString(objectStudent.mId)};
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        boolean updateSuccessful = db.update("students", values, where, whereArgs) > 0;
+        db.close();
+
+        return updateSuccessful;
+    }
 }
 
 
