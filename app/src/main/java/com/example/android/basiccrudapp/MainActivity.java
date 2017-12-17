@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -25,14 +26,16 @@ public class MainActivity extends FragmentActivity
     // defined by the NoticeDialogFragment.NoticeDialogListener interface
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
-            // User touched the dialog's positive button
+        // after creating new record, update number of records and display new reocrds
+        countRecords();
+        readRecords();
     }
 
     /**
      * Count existing records
      */
     public void countRecords(){
-        int recordCount = new TableControllerStudent(this).count();
+        int recordCount = new TableControllerStudent(MainActivity.this).count();
         TextView textViewRecordCount = (TextView) findViewById(R.id.record_count_text_view);
         textViewRecordCount.setText(recordCount + " records found");
     }

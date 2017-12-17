@@ -78,7 +78,7 @@ public class NoticeDialogFragment extends DialogFragment {
                                     "Student Info was not saved", Toast.LENGTH_SHORT).show();
                         }
                         // display updated details after adding new reoord
-                        ((MainActivity) getActivity()).readRecords();
+                        mListener.onDialogPositiveClick(NoticeDialogFragment.this);
                     }
                 });
 
